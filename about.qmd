@@ -2,12 +2,14 @@
 title: "About"
 image: profile.jpg
 about:
-  template: jolla
+  template: solana
   links:
     - icon: github
       text: Github
-      href: https://github.com/etc5523-2022
+      href: https://github.com/etc5523-2022/blog-snehakharbanda
 
 ---
 
-This is a blog template for the ETC5523 Communicating with Data assessment at Monash University.
+Hello everyone!
+
+This blog was created by me, Sneha Kharbanda. I am currently pursuing my masters in Business Analytics from Monash University.

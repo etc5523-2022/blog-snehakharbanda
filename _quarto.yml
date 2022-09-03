@@ -2,16 +2,16 @@ project:
   type: website
 
 website:
-  title: "blog-template"
+  title: "Sneha's first blog"
   navbar:
+    background: success
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/etc5523-2022
+        href: https://github.com/etc5523-2022/blog-snehakharbanda
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: solar
 
 
 

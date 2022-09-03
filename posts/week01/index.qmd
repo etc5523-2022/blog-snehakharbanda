@@ -1,18 +1,66 @@
 ---
-title: "Basic communication theory and practice"
-author: "Emi Tanaka"
-date: "2022-07-25"
-categories: [lecture]
-image: "image.jpg"
+title: "Biketown Bikeshare Analysis"
+author: "Sneha Kharbanda"
+date: "2022-09-03"
+categories: [Analysis]
+image: "https://c.tenor.com/vOtcZhD5vhkAAAAi/bike-bicycle.gif"
 ---
 
-## Aims
+## Introduction and Motivation
 
-* Basic communication theory and its relevancy with communicating with data
-* Demonstrate communication competency by selecting appropriate behaviour based on audience and self monitoring
-* Identify and apply rhetorical elements to improve data storytelling 
-* Clearly articulate and express technical problems for others to help you
+* Biketown is a bike share organisation that allows users to use their bikes. It also records data of how where and when these bikes were ridden. 
+* Using this data to inform users of general trends will hopefully motivate them to ride bikes more often. Riding bikes has a two fold advantage: firstly people stay fit when they ride bike and secondly use of bikes will most probably reduce car usage and thus protect the environment.
 
-## Slides
+In my blog, I have used the data about riders time, duration, location etc. to find out general trends that people can see and understand easily and use this to choose how they wish to ride.
 
-<iframe src="https://cwd.numbat.space/lectures/lecture-01.html" style="border: 1px solid black;" width="100%" height = "400px"></iframe>
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(lubridate)
+library(tidyr)
+library(shinythemes)
+library(glue)
+library(kableExtra)
+```
+
+## Data Description
+
+```{r load-data}
+bike_unzip <- unzip(here::here('week10_biketown.zip'))
+bike <- read_csv(bike_unzip)
+
+bike[c('code', 'bike_name')] <- str_split_fixed(bike$BikeName, ' ', 2)
+bike[c('BikeName2', 'info')] <- str_split_fixed(bike$bike_name, '-', 2)
+bike[c('BikeName3', 'info')] <- str_split_fixed(bike$BikeName2, '\\(', 2)
+bike$bikeName <- trimws(bike$BikeName3, which = c("both"))
+bike <- bike %>% select(-BikeName, -bike_name, -BikeName2, -BikeName3)
+
+bike <- bike %>%
+  mutate(Duration = as.numeric(hms(bike$Duration))) %>%
+  mutate(Duration = Duration/3600) %>%
+  mutate(speed = Distance_Miles/Duration) %>%
+  mutate(speed = round(speed, digits = 3))
+
+bike <- bike %>%
+  drop_na(StartLatitude, StartLongitude, StartHub) %>%
+  mutate(StartLatitude = round(StartLatitude, digits = 2)) %>%
+  mutate(StartLongitude = round(StartLongitude, digits = 2))
+
+bike$StartTime <- hms(bike$StartTime)
+breaks <- hour(hm("00:00", "6:00", "12:00", "18:00", "23:59"))
+labels <- c("Night", "Morning", "Afternoon", "Evening")
+bike$Time_of_day <- cut(x=hour(bike$StartTime), breaks = breaks, labels = labels, include.lowest=TRUE)
+```
+
+```{r}
+#| label: tbl-variables
+#| tbl-cap: Important Variables
+
+variables <- tibble(Variables = c("PaymentPlan", "StartHub", "StartLatitude", "StartLongitude", "StartDate", "StartTime", "EndHub", "EndLatitude", "EndLongitude", "EndDate", "EndTime", "BikeName", "Distance_Miles", "Duration", "Speed", "Time of Day"),
+                    VariableType = c("Character", "Character", "Numeric", "Numeric", "Date", "Date", "Character", "Numeric", "Numeric", "Date", "Date", "Character","Numeric", "Numeric", "Numeric", "Character"),
+                    Description = c("Subsriber or Casual", "Start Location Name", "Start location latitude", "Start location longitude", "Start Date", "Start Time", "End location Name", "End location latitude", "End location longitude", "End Date", "End Time", "Name of the bike", "Distance Travelled", "Duration ridden", "Average speed", "Time of the day"))
+
+kable(variables) %>% kable_styling()
+```
+
+In @tbl-variables, all the important variables of the data is mentioned along with the variable *type* and *description*.

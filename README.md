@@ -1,6 +1,6 @@
 
 # ETC5523 Blog Assessment
 
-* This is a **template** for the ETC5523 Blog Assessment. 
-* The author of this blog is **Emi Tanaka**.
-* The URL for this blog is [https://etc5523-2022.github.io/blog-template/](https://etc5523-2022.github.io/blog-template/)
+* This is a blog on the topic *Biketown Bikeshare* for the ETC5523 Blog Assessment. 
+* The author of this blog is **Sneha Kharbanda**.
+* The URL for this blog is [https://github.com/etc5523-2022/blog-snehakharbanda](https://github.com/etc5523-2022/blog-snehakharbanda)
