@@ -21,12 +21,15 @@ library(tidyr)
 library(shinythemes)
 library(glue)
 library(kableExtra)
+library(plotly)
+library(sf)
+library(mapview)
 ```
 
 ## Data Description
 
 ```{r load-data}
-bike_unzip <- unzip(here::here('week10_biketown.zip'))
+bike_unzip <- unzip('week10_biketown.zip')
 bike <- read_csv(bike_unzip)
 
 bike[c('code', 'bike_name')] <- str_split_fixed(bike$BikeName, ' ', 2)
@@ -64,3 +67,68 @@ kable(variables) %>% kable_styling()
 ```
 
 In @tbl-variables, all the important variables of the data is mentioned along with the variable *type* and *description*.
+
+## Analysis
+
+### Comparison of Speed.
+
+```{r }
+#| label: fig-speed
+#| fig-cap: "Speed in miles per hour"
+
+bike %>% filter(speed <= 30) %>%
+  ggplot(aes(reorder(bikeName, -speed), speed, colour = bikeName)) +
+  geom_boxplot(show.legend = FALSE) +
+  ylab("Speed in miles/hour") +
+  xlab("Bike Name") +
+  theme_bw() +
+  theme(axis.text.x = element_text(color = "blue", size = 5, angle = 30)) 
+
+bike_high <- bike %>% filter(speed >= 30) %>% select(speed, bikeName)
+unique(bike_high$bikeName)
+  
+```
+In the graph @fig-speed we can see average speed of different bikes.
+### Time of Day
+
+```{r}
+ggplot(bike) +
+  geom_bar(aes(fct_infreq(Time_of_day),
+               fill = Time_of_day), show.legend = FALSE) +
+  xlab("Time_of_day")
+```
+
+Speed and time of day.
+```{r}
+bike_speed_top <- bike %>% group_by(bikeName) %>%
+  summarise(avg_speed = mean(speed, na.rm = TRUE)) %>%
+  filter(bikeName != "") %>%
+  arrange(-avg_speed) %>%
+  slice_head(n=5)
+
+kable(bike_speed_top)
+```
+
+```{r}
+bike_payment <- bike %>% group_by(PaymentPlan) %>% summarise(meanDuration = mean(Duration, na.rm = TRUE)) %>%
+  mutate(meanDuration = meanDuration*60)
+
+ggplot(bike_payment) + geom_col(aes(meanDuration, PaymentPlan, fill = PaymentPlan)) + theme_bw()
+```
+
+```{r}
+bike$latlong <- paste(bike$StartLatitude, ",", bike$StartLongitude)
+bike_loc <- bike %>% count(latlong) %>%
+  slice_max(n=10, order_by = n)
+
+bike_loc <- bike_loc %>%
+  separate(latlong, c("lat", "long"), sep = ",") %>%
+  mutate(lat = as.numeric(lat)) %>%
+  mutate(long = as.numeric(long)) %>%
+  slice
+
+p3 <- mapview(bike_loc, xcol = "long", ycol = "lat", crs = 4269, grid = FALSE)
+
+p3
+```
+
