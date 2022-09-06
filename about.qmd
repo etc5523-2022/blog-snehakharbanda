@@ -4,12 +4,16 @@ image: profile.jpg
 about:
   template: solana
   links:
-    - icon: github
-      text: Github
-      href: https://github.com/etc5523-2022/blog-snehakharbanda
+    - icon: linkedin
+      text: Linkdin
+      href: https://www.linkedin.com/in/sneha-kharbanda-80804015b/
 
 ---
 
 Hello everyone!
 
-This blog was created by me, Sneha Kharbanda. I am currently pursuing my masters in Business Analytics from Monash University.
+This blog was created by me, Sneha Kharbanda under the guidance of my professors Emi Tanaka and Weihao (Patrick) Li. I am currently pursuing my masters in Business Analytics from Monash University. I have completed my bachelors in Electrical and Electronics Engineering. I am hoping to change the world one code at a time. 
+
+In my free time, I love to go out and explore new places and meet new people. On some days, I love staying home and painting.
+
+If you have any feedback or issues feel free to reach out to me via skha0095@student.monash.edu !

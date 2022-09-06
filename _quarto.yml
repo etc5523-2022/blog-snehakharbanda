@@ -9,6 +9,8 @@ website:
       - about.qmd
       - icon: github
         href: https://github.com/etc5523-2022/blog-snehakharbanda
+      - icon: linkedin
+        href: https://www.linkedin.com/in/sneha-kharbanda-80804015b/
 format:
   html:
     theme: journal
