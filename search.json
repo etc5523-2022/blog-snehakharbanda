@@ -1,17 +1,52 @@
 [
   {
-    "objectID": "posts/week01/index.html",
-    "href": "posts/week01/index.html",
-    "title": "Basic communication theory and practice",
+    "objectID": "posts/Biketown/index.html",
+    "href": "posts/Biketown/index.html",
+    "title": "Biketown Bikeshare Analysis",
     "section": "",
-    "text": "Basic communication theory and its relevancy with communicating with data\nDemonstrate communication competency by selecting appropriate behaviour based on audience and self monitoring\nIdentify and apply rhetorical elements to improve data storytelling\nClearly articulate and express technical problems for others to help you"
+    "text": "Biketown is a bike share organisation that allows users to use their bikes. It also records data of how where and when these bikes were ridden.\nUsing this data to inform users of general trends will hopefully motivate them to ride bikes more often. Riding bikes has a two fold advantage: firstly people stay fit when they ride bike and secondly use of bikes will most probably reduce car usage and thus protect the environment.\n\nIn my blog, I have used the data about riders time, duration, location etc. to find out general trends that people can see and understand easily and use this to choose how they wish to ride."
   },
   {
-    "objectID": "posts/week01/index.html#slides",
-    "href": "posts/week01/index.html#slides",
-    "title": "Basic communication theory and practice",
-    "section": "Slides",
-    "text": "Slides"
+    "objectID": "posts/Biketown/index.html#data-description",
+    "href": "posts/Biketown/index.html#data-description",
+    "title": "Biketown Bikeshare Analysis",
+    "section": "Data Description",
+    "text": "Data Description\nThe data used for this analysis is available to the public here.\nIt contains information about bike rentals.\n\n\n\n\n\n\n\nTable 1:  Important Variables \n \n  \n    Variables \n    VariableType \n    Description \n  \n \n\n  \n    PaymentPlan \n    Character \n    Subsriber or Casual \n  \n  \n    StartHub \n    Character \n    Start Location Name \n  \n  \n    StartLatitude \n    Numeric \n    Start location latitude \n  \n  \n    StartLongitude \n    Numeric \n    Start location longitude \n  \n  \n    StartDate \n    Date \n    Start Date \n  \n  \n    StartTime \n    Date \n    Start Time \n  \n  \n    EndHub \n    Character \n    End location Name \n  \n  \n    EndLatitude \n    Numeric \n    End location latitude \n  \n  \n    EndLongitude \n    Numeric \n    End location longitude \n  \n  \n    EndDate \n    Date \n    End Date \n  \n  \n    EndTime \n    Date \n    End Time \n  \n  \n    BikeName \n    Character \n    Name of the bike \n  \n  \n    Distance_Miles \n    Numeric \n    Distance Travelled \n  \n  \n    Duration \n    Numeric \n    Duration ridden \n  \n  \n    Speed \n    Numeric \n    Average speed \n  \n  \n    Time of Day \n    Character \n    Time of the day \n  \n\n\n\n\n\n\nIn Table 1, all the important variables of the data is mentioned along with the variable type and description."
+  },
+  {
+    "objectID": "posts/Biketown/index.html#analysis",
+    "href": "posts/Biketown/index.html#analysis",
+    "title": "Biketown Bikeshare Analysis",
+    "section": "Analysis",
+    "text": "Analysis\n\nComparison of Speed.\nThe average speed of an average rider is 15 miles per hour. Nevertheless, speed varies on various factors such as inclination of the road, weather conditions, the type of bike, etc.\n\n\n\nSpeed\n\n\n\n\n\n\n\nFigure 1: Speed of bikes in miles per hour\n\n\n\n\nIn the above Figure 1 we can see average speed of different bikes. The above figure is obtained by only using speed below 30 miles per hour to see speeds in the normal limits. We can observe that Betrue Max Lightbike has the highest median speed.\nBikes that have traveled over the speed of 30 miles per hour are AIR SAFARI, BIKETOWN, AIR TRAINER\n\n\nTop 5 bikes according to their average speed\nUsing all the data we have, the bike with the highest average speed is BETRUE MAX LIGHTBIKE.\n\n\n\n\nTable 2:  Bikes that have travelled at very high speed \n \n  \n    bikeName \n    avg_speed \n  \n \n\n  \n    BETRUE MAX LIGHTBIKE \n    7.194210 \n  \n  \n    AIR SAFARI RECON \n    7.166667 \n  \n  \n    BIKETOWN LIGHTBIKE \n    6.731211 \n  \n  \n    BIKETOWN \n    6.581878 \n  \n  \n    AIR TRAINER \n    6.033198 \n  \n\n\n\n\n\n\n\n\nTime of Day\nDifferent people prefer different times of the day to ride bikes but if one is aware of the most common and least common times they can choose the time they wish to ride. If a person is hoping to find rider buddies along their ride they can choose the most common times and if a person is hoping to easily find a bike they can choose the least common time.\n\n\n\n\n\nFigure 2: Frequency of riders based on time of day\n\n\n\n\nAccording to the data we have, shown in Figure 2 surprisingly, afternoon is the most common time that riders choose even though it is commonly hot and sunny!"
+  },
+  {
+    "objectID": "posts/Biketown/index.html#payment-plan",
+    "href": "posts/Biketown/index.html#payment-plan",
+    "title": "Biketown Bikeshare Analysis",
+    "section": "Payment Plan",
+    "text": "Payment Plan\nOne would normally expect that riders who are subscribers will have a higher mean duration of riding bikes but the data we have suggests otherwise. As seen in Figure 3 Casual riders have a higher mean duration.\n\n\n\n\n\nFigure 3: Mean Duration of riders according to payment plan"
+  },
+  {
+    "objectID": "posts/Biketown/index.html#location-analysis",
+    "href": "posts/Biketown/index.html#location-analysis",
+    "title": "Biketown Bikeshare Analysis",
+    "section": "Location Analysis",
+    "text": "Location Analysis\nIn this section, let us see the most common location that riders choose to ride from."
+  },
+  {
+    "objectID": "posts/Biketown/index.html#conclusion",
+    "href": "posts/Biketown/index.html#conclusion",
+    "title": "Biketown Bikeshare Analysis",
+    "section": "Conclusion",
+    "text": "Conclusion\nFrom the above analysis, we get a lot of information about some common habits and characteristics of riders. We know which bikes have normally been driven at higher speed, most riders prefer to ride in afternoon and that casual riders have higher mean duration. The most common locations that riders start from is also shown."
+  },
+  {
+    "objectID": "posts/Biketown/index.html#references",
+    "href": "posts/Biketown/index.html#references",
+    "title": "Biketown Bikeshare Analysis",
+    "section": "References",
+    "text": "References\nSoftware: RStudio Team (2020). RStudio: Integrated Development for R. RStudio, PBC, Boston, MA URL http://www.rstudio.com/.\nData: Lyft. Biketown(2022). https://biketownpdx.com/system-data\nTyler Whitehouse. Road Bike Basics. (2022). https://roadbikebasics.com/average-speed-on-road-bike/"
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -21,45 +56,17 @@
     "text": "This is the first post in a Quarto blog. Welcome!"
   },
   {
-    "objectID": "posts/week02/index.html",
-    "href": "posts/week02/index.html",
-    "title": "Introduction to web technologies",
-    "section": "",
-    "text": "Understand the make up of web documents, i.e. HTML, CSS and JS\nWrite basic HTML and CSS with valid syntax\nUse CSS selectors to apply new styles\nIntegrate CSS and JS to R markdown documents with HTML output"
-  },
-  {
-    "objectID": "posts/week02/index.html#slides",
-    "href": "posts/week02/index.html#slides",
-    "title": "Introduction to web technologies",
-    "section": "Slides",
-    "text": "Slides"
-  },
-  {
-    "objectID": "posts/week03/index.html",
-    "href": "posts/week03/index.html",
-    "title": "Communicating data with interactive web apps",
-    "section": "",
-    "text": "Use interactivity to enable data exploration, understanding and communication\nDesign web apps with displays that fit for the purpose\nMake web applications using shiny"
-  },
-  {
-    "objectID": "posts/week03/index.html#analysis",
-    "href": "posts/week03/index.html#analysis",
-    "title": "Communicating data with interactive web apps",
-    "section": "Analysis",
-    "text": "Analysis\n\nlibrary(tidyverse)\nlibrary(tidycovid19)\ndf <- download_merged_data(cached = TRUE, silent = TRUE)\n\n\ng <- df %>% \n  filter(country == \"Australia\") %>% \n  mutate(cases_new = diff(c(0, confirmed))) %>% \n  filter(between(date, as.Date(\"2022-03-01\"), as.Date(\"2022-08-30\"))) %>% \n  ggplot(aes(date, cases_new)) +\n  geom_line() +\n  labs(x = \"Date\", y = \"New COVID-19 Cases\",\n       title = \"Australia\") +\n  theme_classic(base_size = 14)\n\nplotly::ggplotly(g)"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "ETC5523 Blog Assessment",
     "section": "",
-    "text": "lecture\n\n\n\n\n\n\n\n\n\n\n\nAug 8, 2022\n\n\nEmi Tanaka\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nlecture\n\n\n\n\n\n\n\n\n\n\n\nAug 1, 2022\n\n\nEmi Tanaka\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nlecture\n\n\n\n\n\n\n\n\n\n\n\nJul 25, 2022\n\n\nEmi Tanaka\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 18, 2022\n\n\nEmi Tanaka\n\n\n\n\n\n\nNo matching items"
+    "text": "Analysis\n\n\n\n\n\n\n\n\n\n\n\nSep 3, 2022\n\n\nSneha Kharbanda\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 18, 2022\n\n\nEmi Tanaka\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "This is a blog template for the ETC5523 Communicating with Data assessment at Monash University."
+    "text": "This blog was created by me, Sneha Kharbanda. I am currently pursuing my masters in Business Analytics from Monash University."
   }
 ]

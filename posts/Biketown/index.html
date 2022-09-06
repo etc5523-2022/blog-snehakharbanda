@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sneha Kharbanda">
+<meta name="dcterms.date" content="2022-09-03">
+
+<title>Sneha’s Blogs - Biketown Bikeshare Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="../../site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="../../site_libs/jquery-1.12.4/jquery.min.js"></script>
+<link href="../../site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="../../site_libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="../../site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="../../site_libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="../../site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="../../site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="../../site_libs/leaflet-binding-2.1.1/leaflet.js"></script>
+<script src="../../site_libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="../../site_libs/leaflet-providers-plugin-2.1.1/leaflet-providers-plugin.js"></script>
+<link href="../../site_libs/HomeButton-0.0.1/home-button.css" rel="stylesheet">
+<script src="../../site_libs/HomeButton-0.0.1/home-button.js"></script>
+<script src="../../site_libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
+<script src="../../site_libs/clipboard-0.0.1/setClipboardText.js"></script>
+<link href="../../site_libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet">
+<link href="../../site_libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Sneha’s Blogs</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/etc5523-2022/blog-snehakharbanda"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Biketown Bikeshare Analysis</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Analysis</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sneha Kharbanda </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 3, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="introduction-and-motivation" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-and-motivation">Introduction and Motivation</h2>
+<ul>
+<li>Biketown is a bike share organisation that allows users to use their bikes. It also records data of how where and when these bikes were ridden.</li>
+<li>Using this data to inform users of general trends will hopefully motivate them to ride bikes more often. Riding bikes has a two fold advantage: firstly people stay fit when they ride bike and secondly use of bikes will most probably reduce car usage and thus protect the environment.</li>
+</ul>
+<p>In my blog, I have used the data about riders time, duration, location etc. to find out general trends that people can see and understand easily and use this to choose how they wish to ride.</p>
+</section>
+<section id="data-description" class="level2">
+<h2 class="anchored" data-anchor-id="data-description">Data Description</h2>
+<p>The data used for this analysis is available to the public <a href="https://biketownpdx.com/system-data">here.</a></p>
+<p>It contains information about bike rentals.</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-variables" class="anchored">
+
+<table class="table" style="margin-left: auto; margin-right: auto;"><caption>Table 1:  Important Variables </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Variables </th>
+   <th style="text-align:left;"> VariableType </th>
+   <th style="text-align:left;"> Description </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> PaymentPlan </td>
+   <td style="text-align:left;"> Character </td>
+   <td style="text-align:left;"> Subsriber or Casual </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> StartHub </td>
+   <td style="text-align:left;"> Character </td>
+   <td style="text-align:left;"> Start Location Name </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> StartLatitude </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> Start location latitude </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> StartLongitude </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> Start location longitude </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> StartDate </td>
+   <td style="text-align:left;"> Date </td>
+   <td style="text-align:left;"> Start Date </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> StartTime </td>
+   <td style="text-align:left;"> Date </td>
+   <td style="text-align:left;"> Start Time </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> EndHub </td>
+   <td style="text-align:left;"> Character </td>
+   <td style="text-align:left;"> End location Name </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> EndLatitude </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> End location latitude </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> EndLongitude </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> End location longitude </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> EndDate </td>
+   <td style="text-align:left;"> Date </td>
+   <td style="text-align:left;"> End Date </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> EndTime </td>
+   <td style="text-align:left;"> Date </td>
+   <td style="text-align:left;"> End Time </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BikeName </td>
+   <td style="text-align:left;"> Character </td>
+   <td style="text-align:left;"> Name of the bike </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Distance_Miles </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> Distance Travelled </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Duration </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> Duration ridden </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Speed </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> Average speed </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Time of Day </td>
+   <td style="text-align:left;"> Character </td>
+   <td style="text-align:left;"> Time of the day </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>In <a href="#tbl-variables">Table&nbsp;1</a>, all the important variables of the data is mentioned along with the variable <em>type</em> and <em>description</em>.</p>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<section id="comparison-of-speed." class="level3">
+<h3 class="anchored" data-anchor-id="comparison-of-speed.">Comparison of Speed.</h3>
+<p>The average speed of an average rider is 15 miles per hour. Nevertheless, speed varies on various factors such as inclination of the road, weather conditions, the type of bike, etc.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="speed.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Speed</figcaption><p></p>
+</figure>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-speed" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-speed-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure 1: Speed of bikes in miles per hour</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In the above <a href="#fig-speed">Figure&nbsp;1</a> we can see average speed of different bikes. The above figure is obtained by only using speed below 30 miles per hour to see speeds in the normal limits. We can observe that <em>Betrue Max Lightbike</em> has the highest median speed.</p>
+<p>Bikes that have traveled over the speed of 30 miles per hour are AIR SAFARI, BIKETOWN, AIR TRAINER</p>
+</section>
+<section id="top-5-bikes-according-to-their-average-speed" class="level3">
+<h3 class="anchored" data-anchor-id="top-5-bikes-according-to-their-average-speed">Top 5 bikes according to their average speed</h3>
+<p>Using all the data we have, the bike with the highest average speed is <em>BETRUE MAX LIGHTBIKE</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-highspeed" class="anchored">
+
+<table class="table" style="margin-left: auto; margin-right: auto;"><caption>Table 2:  Bikes that have travelled at very high speed </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> bikeName </th>
+   <th style="text-align:right;"> avg_speed </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> BETRUE MAX LIGHTBIKE </td>
+   <td style="text-align:right;"> 7.194210 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AIR SAFARI RECON </td>
+   <td style="text-align:right;"> 7.166667 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BIKETOWN LIGHTBIKE </td>
+   <td style="text-align:right;"> 6.731211 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BIKETOWN </td>
+   <td style="text-align:right;"> 6.581878 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AIR TRAINER </td>
+   <td style="text-align:right;"> 6.033198 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="time-of-day" class="level3">
+<h3 class="anchored" data-anchor-id="time-of-day">Time of Day</h3>
+<p>Different people prefer different times of the day to ride bikes but if one is aware of the most common and least common times they can choose the time they wish to ride. If a person is hoping to find rider buddies along their ride they can choose the most common times and if a person is hoping to easily find a bike they can choose the least common time.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-time" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-time-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure 2: Frequency of riders based on time of day</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>According to the data we have, shown in <a href="#fig-time">Figure&nbsp;2</a> surprisingly, <em>afternoon</em> is the most common time that riders choose even though it is commonly hot and sunny!</p>
+</section>
+</section>
+<section id="payment-plan" class="level2">
+<h2 class="anchored" data-anchor-id="payment-plan">Payment Plan</h2>
+<p>One would normally expect that riders who are subscribers will have a higher mean duration of riding bikes but the data we have suggests otherwise. As seen in <a href="#fig-pay">Figure&nbsp;3</a> <em>Casual</em> riders have a higher mean duration.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-pay" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-pay-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure 3: Mean Duration of riders according to payment plan</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="location-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="location-analysis">Location Analysis</h2>
+<p>In this section, let us see the most common location that riders choose to ride from.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-830965b26f4c7a8b3d2f" style="width:100%;height:464px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-830965b26f4c7a8b3d2f">{"x":{"options":{"minZoom":1,"maxZoom":52,"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"preferCanvas":false,"bounceAtZoomLimits":false,"maxBounds":[[[-90,-370]],[[90,370]]]},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron","CartoDB.Positron","CartoDB.Positron",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["CartoDB.DarkMatter","CartoDB.DarkMatter","CartoDB.DarkMatter",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenStreetMap","OpenStreetMap","OpenStreetMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["Esri.WorldImagery","Esri.WorldImagery","Esri.WorldImagery",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenTopoMap","OpenTopoMap","OpenTopoMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"createMapPane","args":["point",440]},{"method":"addCircleMarkers","args":[[45.52,45.52,45.53,45.53,45.52,45.51,45.53,45.5,45.51,45.51],[-122.68,-122.67,-122.69,-122.68,-122.69,-122.68,-122.7,-122.67,-122.67,-122.65],6,null,"data",{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"pane":"point","stroke":true,"color":"#333333","weight":1,"opacity":0.9,"fill":true,"fillColor":"#6666FF","fillOpacity":0.6},null,null,["<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>1&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.52&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.68&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>65966&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>2&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.52&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.67&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>48719&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>3&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.53&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.69&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>35843&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>4&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.53&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.68&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>33384&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>5&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.52&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.69&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>18798&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>6&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.51&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.68&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>16417&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>7&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.53&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.7&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>14840&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>8&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.5&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.67&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>14815&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>9&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.51&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.67&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>13689&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>10&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.51&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.65&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>12182&emsp;<\/td><\/tr><\/table><\/div>"],{"maxWidth":800,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":true,"closeOnClick":true,"className":""},["long (x) : -122.68<br>lat (y) : 45.52","long (x) : -122.67<br>lat (y) : 45.52","long (x) : -122.69<br>lat (y) : 45.53","long (x) : -122.68<br>lat (y) : 45.53","long (x) : -122.69<br>lat (y) : 45.52","long (x) : -122.68<br>lat (y) : 45.51","long (x) : -122.7<br>lat (y) : 45.53","long (x) : -122.67<br>lat (y) : 45.5","long (x) : -122.67<br>lat (y) : 45.51","long (x) : -122.65<br>lat (y) : 45.51"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]},{"method":"addHomeButton","args":[-122.7,45.5,-122.65,45.53,true,"data","Zoom to data","<strong> data <\/strong>","bottomright"]},{"method":"addLayersControl","args":[["CartoDB.Positron","CartoDB.DarkMatter","OpenStreetMap","Esri.WorldImagery","OpenTopoMap"],"data",{"collapsed":true,"autoZIndex":true,"position":"topleft"}]},{"method":"addLegend","args":[{"colors":["#6666FF"],"labels":["data"],"na_color":null,"na_label":"NA","opacity":1,"position":"topright","type":"factor","title":"","extra":null,"layerId":null,"className":"info legend","group":"data"}]}],"limits":{"lat":[45.5,45.53],"lng":[-122.7,-122.65]},"fitBounds":[45.5,-122.7,45.53,-122.65,[]]},"evals":[],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (\n      function(el, x, data) {\n      // get the leaflet map\n      var map = this; //HTMLWidgets.find('#' + el.id);\n      // we need a new div element because we have to handle\n      // the mouseover output separately\n      // debugger;\n      function addElement () {\n      // generate new div Element\n      var newDiv = $(document.createElement('div'));\n      // append at end of leaflet htmlwidget container\n      $(el).append(newDiv);\n      //provide ID and style\n      newDiv.addClass('lnlt');\n      newDiv.css({\n      'position': 'relative',\n      'bottomleft':  '0px',\n      'background-color': 'rgba(255, 255, 255, 0.7)',\n      'box-shadow': '0 0 2px #bbb',\n      'background-clip': 'padding-box',\n      'margin': '0',\n      'padding-left': '5px',\n      'color': '#333',\n      'font': '9px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif',\n      'z-index': '700',\n      });\n      return newDiv;\n      }\n\n\n      // check for already existing lnlt class to not duplicate\n      var lnlt = $(el).find('.lnlt');\n\n      if(!lnlt.length) {\n      lnlt = addElement();\n\n      // grab the special div we generated in the beginning\n      // and put the mousmove output there\n\n      map.on('mousemove', function (e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                           ' lon: ' + (e.latlng.lng).toFixed(5) +\n                           ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                           ' | zoom: ' + map.getZoom() +\n                           ' | x: ' + L.CRS.EPSG3857.project(e.latlng).x.toFixed(0) +\n                           ' | y: ' + L.CRS.EPSG3857.project(e.latlng).y.toFixed(0) +\n                           ' | epsg: 3857 ' +\n                           ' | proj4: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs ');\n      } else {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      }\n      });\n\n      // remove the lnlt div when mouse leaves map\n      map.on('mouseout', function (e) {\n      var strip = document.querySelector('.lnlt');\n      if( strip !==null) strip.remove();\n      });\n\n      };\n\n      //$(el).keypress(67, function(e) {\n      map.on('preclick', function(e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      var txt = document.querySelector('.lnlt').textContent;\n      console.log(txt);\n      //txt.innerText.focus();\n      //txt.select();\n      setClipboardText('\"' + txt + '\"');\n      }\n      });\n\n      }\n      ).call(this.getMap(), el, x, data);\n}","data":null},{"code":"function(el, x, data) {\n  return (function(el,x,data){\n           var map = this;\n\n           map.on('keypress', function(e) {\n               console.log(e.originalEvent.code);\n               var key = e.originalEvent.code;\n               if (key === 'KeyE') {\n                   var bb = this.getBounds();\n                   var txt = JSON.stringify(bb);\n                   console.log(txt);\n\n                   setClipboardText('\\'' + txt + '\\'');\n               }\n           })\n        }).call(this.getMap(), el, x, data);\n}","data":null}]}}</script>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>From the above analysis, we get a lot of information about some common habits and characteristics of riders. We know which bikes have normally been driven at higher speed, most riders prefer to ride in afternoon and that casual riders have higher mean duration. The most common locations that riders start from is also shown.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p><em>Software:</em> RStudio Team (2020). RStudio: Integrated Development for R. RStudio, PBC, Boston, MA URL http://www.rstudio.com/.</p>
+<p><em>Data:</em> Lyft. Biketown(2022). https://biketownpdx.com/system-data</p>
+<p>Tyler Whitehouse. Road Bike Basics. (2022). https://roadbikebasics.com/average-speed-on-road-bike/</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

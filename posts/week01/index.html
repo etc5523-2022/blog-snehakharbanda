@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.615">
+<meta name="generator" content="quarto-1.0.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Emi Tanaka">
-<meta name="dcterms.date" content="2022-07-25">
+<meta name="author" content="Sneha Kharbanda">
+<meta name="dcterms.date" content="2022-09-03">
 
-<title>blog-template - Basic communication theory and practice</title>
+<title>Sneha’s Blogs - Biketown Bikeshare Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,7 +35,7 @@ ul.task-list{list-style: none;}
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -56,8 +56,33 @@ ul.task-list{list-style: none;}
   }
 }</script>
 
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="../../site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="../../site_libs/plotly-binding-4.10.0/plotly.js"></script>
+<script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../../site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="../../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="../../site_libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../../site_libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
+<link href="../../site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="../../site_libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="../../site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="../../site_libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="../../site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="../../site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="../../site_libs/leaflet-binding-2.1.1/leaflet.js"></script>
+<script src="../../site_libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="../../site_libs/leaflet-providers-plugin-2.1.1/leaflet-providers-plugin.js"></script>
+<link href="../../site_libs/HomeButton-0.0.1/home-button.css" rel="stylesheet">
+<script src="../../site_libs/HomeButton-0.0.1/home-button.js"></script>
+<script src="../../site_libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
+<script src="../../site_libs/clipboard-0.0.1/setClipboardText.js"></script>
+<link href="../../site_libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet">
+<link href="../../site_libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet">
 
-<link rel="stylesheet" href="../../styles.css">
+
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -67,7 +92,7 @@ ul.task-list{list-style: none;}
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">blog-template</span>
+    <span class="navbar-title">Sneha’s Blogs</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -78,7 +103,7 @@ ul.task-list{list-style: none;}
     <a class="nav-link" href="../../about.html">About</a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/etc5523-2022"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/etc5523-2022/blog-snehakharbanda"><i class="bi bi-github" role="img">
 </i> 
  </a>
   </li>  
@@ -92,9 +117,9 @@ ul.task-list{list-style: none;}
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Basic communication theory and practice</h1>
+      <h1 class="title">Biketown Bikeshare Analysis</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">lecture</div>
+                <div class="quarto-category">Analysis</div>
               </div>
                   </div>
   </div>
@@ -105,14 +130,14 @@ ul.task-list{list-style: none;}
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Emi Tanaka </p>
+               <p>Sneha Kharbanda </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 25, 2022</p>
+        <p class="date">September 3, 2022</p>
       </div>
     </div>
       
@@ -129,26 +154,224 @@ ul.task-list{list-style: none;}
 
 
 
-<section id="aims" class="level2">
-<h2 class="anchored" data-anchor-id="aims">Aims</h2>
+<section id="introduction-and-motivation" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-and-motivation">Introduction and Motivation</h2>
 <ul>
-<li>Basic communication theory and its relevancy with communicating with data</li>
-<li>Demonstrate communication competency by selecting appropriate behaviour based on audience and self monitoring</li>
-<li>Identify and apply rhetorical elements to improve data storytelling</li>
-<li>Clearly articulate and express technical problems for others to help you</li>
+<li>Biketown is a bike share organisation that allows users to use their bikes. It also records data of how where and when these bikes were ridden.</li>
+<li>Using this data to inform users of general trends will hopefully motivate them to ride bikes more often. Riding bikes has a two fold advantage: firstly people stay fit when they ride bike and secondly use of bikes will most probably reduce car usage and thus protect the environment.</li>
 </ul>
+<p>In my blog, I have used the data about riders time, duration, location etc. to find out general trends that people can see and understand easily and use this to choose how they wish to ride.</p>
 </section>
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
-<iframe src="https://cwd.numbat.space/lectures/lecture-01.html" style="border: 1px solid black;" width="100%" height="400px">
-</iframe>
+<section id="data-description" class="level2">
+<h2 class="anchored" data-anchor-id="data-description">Data Description</h2>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-variables" class="anchored">
+
+<table class="table" style="margin-left: auto; margin-right: auto;"><caption>Table 1:  Important Variables </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Variables </th>
+   <th style="text-align:left;"> VariableType </th>
+   <th style="text-align:left;"> Description </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> PaymentPlan </td>
+   <td style="text-align:left;"> Character </td>
+   <td style="text-align:left;"> Subsriber or Casual </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> StartHub </td>
+   <td style="text-align:left;"> Character </td>
+   <td style="text-align:left;"> Start Location Name </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> StartLatitude </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> Start location latitude </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> StartLongitude </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> Start location longitude </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> StartDate </td>
+   <td style="text-align:left;"> Date </td>
+   <td style="text-align:left;"> Start Date </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> StartTime </td>
+   <td style="text-align:left;"> Date </td>
+   <td style="text-align:left;"> Start Time </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> EndHub </td>
+   <td style="text-align:left;"> Character </td>
+   <td style="text-align:left;"> End location Name </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> EndLatitude </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> End location latitude </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> EndLongitude </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> End location longitude </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> EndDate </td>
+   <td style="text-align:left;"> Date </td>
+   <td style="text-align:left;"> End Date </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> EndTime </td>
+   <td style="text-align:left;"> Date </td>
+   <td style="text-align:left;"> End Time </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BikeName </td>
+   <td style="text-align:left;"> Character </td>
+   <td style="text-align:left;"> Name of the bike </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Distance_Miles </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> Distance Travelled </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Duration </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> Duration ridden </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Speed </td>
+   <td style="text-align:left;"> Numeric </td>
+   <td style="text-align:left;"> Average speed </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Time of Day </td>
+   <td style="text-align:left;"> Character </td>
+   <td style="text-align:left;"> Time of the day </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>In <a href="#tbl-variables">Table&nbsp;1</a>, all the important variables of the data is mentioned along with the variable <em>type</em> and <em>description</em>.</p>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<section id="comparison-of-speed." class="level3">
+<h3 class="anchored" data-anchor-id="comparison-of-speed.">Comparison of Speed.</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-speed" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/fig-speed-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure 1: Average speed in miles per hour</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In the graph <a href="#fig-speed">Figure&nbsp;1</a> we can see average speed of different bikes. ### Time of Day</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Speed and time of day.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> bikeName </th>
+   <th style="text-align:right;"> avg_speed </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> BETRUE MAX LIGHTBIKE </td>
+   <td style="text-align:right;"> 7.194210 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AIR SAFARI RECON </td>
+   <td style="text-align:right;"> 7.166667 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BIKETOWN LIGHTBIKE </td>
+   <td style="text-align:right;"> 6.731211 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BIKETOWN </td>
+   <td style="text-align:right;"> 6.581878 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AIR TRAINER </td>
+   <td style="text-align:right;"> 6.033198 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="htmlwidget-23522099eb4ac733cbbb" style="width:100%;height:464px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-23522099eb4ac733cbbb">{"x":{"data":[{"x":[1,2,3,4],"y":[7.90433333333333,7.60307692307692,4.8585,4.087],"text":["factor(Time_of_day, level = level_order): Morning<br />avg_speed: 7.904333<br />bikeName: AIR SAFARI RECON<br />bikeName: AIR SAFARI RECON","factor(Time_of_day, level = level_order): Afternoon<br />avg_speed: 7.603077<br />bikeName: AIR SAFARI RECON<br />bikeName: AIR SAFARI RECON","factor(Time_of_day, level = level_order): Evening<br />avg_speed: 4.858500<br />bikeName: AIR SAFARI RECON<br />bikeName: AIR SAFARI RECON","factor(Time_of_day, level = level_order): Night<br />avg_speed: 4.087000<br />bikeName: AIR SAFARI RECON<br />bikeName: AIR SAFARI RECON"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)","dash":"solid"},"hoveron":"points","name":"AIR SAFARI RECON","legendgroup":"AIR SAFARI RECON","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"frame":null},{"x":[1,2,3,4],"y":[6.43693046357616,5.75569447627779,5.90102642395772,6.82222843822844],"text":["factor(Time_of_day, level = level_order): Morning<br />avg_speed: 6.436930<br />bikeName: AIR TRAINER<br />bikeName: AIR TRAINER","factor(Time_of_day, level = level_order): Afternoon<br />avg_speed: 5.755694<br />bikeName: AIR TRAINER<br />bikeName: AIR TRAINER","factor(Time_of_day, level = level_order): Evening<br />avg_speed: 5.901026<br />bikeName: AIR TRAINER<br />bikeName: AIR TRAINER","factor(Time_of_day, level = level_order): Night<br />avg_speed: 6.822228<br />bikeName: AIR TRAINER<br />bikeName: AIR TRAINER"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(163,165,0,1)","dash":"solid"},"hoveron":"points","name":"AIR TRAINER","legendgroup":"AIR TRAINER","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3],"y":[6.80908695652174,7.39685714285714,7.72483333333333],"text":["factor(Time_of_day, level = level_order): Morning<br />avg_speed: 6.809087<br />bikeName: BETRUE MAX LIGHTBIKE<br />bikeName: BETRUE MAX LIGHTBIKE","factor(Time_of_day, level = level_order): Afternoon<br />avg_speed: 7.396857<br />bikeName: BETRUE MAX LIGHTBIKE<br />bikeName: BETRUE MAX LIGHTBIKE","factor(Time_of_day, level = level_order): Evening<br />avg_speed: 7.724833<br />bikeName: BETRUE MAX LIGHTBIKE<br />bikeName: BETRUE MAX LIGHTBIKE"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,191,125,1)","dash":"solid"},"hoveron":"points","name":"BETRUE MAX LIGHTBIKE","legendgroup":"BETRUE MAX LIGHTBIKE","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4],"y":[7.75901694109594,6.10420556506849,5.73997953367444,6.90425667874883],"text":["factor(Time_of_day, level = level_order): Morning<br />avg_speed: 7.759017<br />bikeName: BIKETOWN<br />bikeName: BIKETOWN","factor(Time_of_day, level = level_order): Afternoon<br />avg_speed: 6.104206<br />bikeName: BIKETOWN<br />bikeName: BIKETOWN","factor(Time_of_day, level = level_order): Evening<br />avg_speed: 5.739980<br />bikeName: BIKETOWN<br />bikeName: BIKETOWN","factor(Time_of_day, level = level_order): Night<br />avg_speed: 6.904257<br />bikeName: BIKETOWN<br />bikeName: BIKETOWN"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,176,246,1)","dash":"solid"},"hoveron":"points","name":"BIKETOWN","legendgroup":"BIKETOWN","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,2,3,4],"y":[7.07889130434783,6.38581730769231,6.44656896551724,7.5718275862069],"text":["factor(Time_of_day, level = level_order): Morning<br />avg_speed: 7.078891<br />bikeName: BIKETOWN LIGHTBIKE<br />bikeName: BIKETOWN LIGHTBIKE","factor(Time_of_day, level = level_order): Afternoon<br />avg_speed: 6.385817<br />bikeName: BIKETOWN LIGHTBIKE<br />bikeName: BIKETOWN LIGHTBIKE","factor(Time_of_day, level = level_order): Evening<br />avg_speed: 6.446569<br />bikeName: BIKETOWN LIGHTBIKE<br />bikeName: BIKETOWN LIGHTBIKE","factor(Time_of_day, level = level_order): Night<br />avg_speed: 7.571828<br />bikeName: BIKETOWN LIGHTBIKE<br />bikeName: BIKETOWN LIGHTBIKE"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(231,107,243,1)","dash":"solid"},"hoveron":"points","name":"BIKETOWN LIGHTBIKE","legendgroup":"BIKETOWN LIGHTBIKE","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4,1,3,2],"y":[6.82222843822844,6.43693046357616,5.90102642395772,5.75569447627779],"text":["factor(Time_of_day, level = level_order): Night<br />avg_speed: 6.822228<br />bikeName: AIR TRAINER<br />bikeName: AIR TRAINER","factor(Time_of_day, level = level_order): Morning<br />avg_speed: 6.436930<br />bikeName: AIR TRAINER<br />bikeName: AIR TRAINER","factor(Time_of_day, level = level_order): Evening<br />avg_speed: 5.901026<br />bikeName: AIR TRAINER<br />bikeName: AIR TRAINER","factor(Time_of_day, level = level_order): Afternoon<br />avg_speed: 5.755694<br />bikeName: AIR TRAINER<br />bikeName: AIR TRAINER"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"AIR TRAINER","legendgroup":"AIR TRAINER","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3,2,1],"y":[7.72483333333333,7.39685714285714,6.80908695652174],"text":["factor(Time_of_day, level = level_order): Evening<br />avg_speed: 7.724833<br />bikeName: BETRUE MAX LIGHTBIKE<br />bikeName: BETRUE MAX LIGHTBIKE","factor(Time_of_day, level = level_order): Afternoon<br />avg_speed: 7.396857<br />bikeName: BETRUE MAX LIGHTBIKE<br />bikeName: BETRUE MAX LIGHTBIKE","factor(Time_of_day, level = level_order): Morning<br />avg_speed: 6.809087<br />bikeName: BETRUE MAX LIGHTBIKE<br />bikeName: BETRUE MAX LIGHTBIKE"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"BETRUE MAX LIGHTBIKE","legendgroup":"BETRUE MAX LIGHTBIKE","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,4,2,3],"y":[7.75901694109594,6.90425667874883,6.10420556506849,5.73997953367444],"text":["factor(Time_of_day, level = level_order): Morning<br />avg_speed: 7.759017<br />bikeName: BIKETOWN<br />bikeName: BIKETOWN","factor(Time_of_day, level = level_order): Night<br />avg_speed: 6.904257<br />bikeName: BIKETOWN<br />bikeName: BIKETOWN","factor(Time_of_day, level = level_order): Afternoon<br />avg_speed: 6.104206<br />bikeName: BIKETOWN<br />bikeName: BIKETOWN","factor(Time_of_day, level = level_order): Evening<br />avg_speed: 5.739980<br />bikeName: BIKETOWN<br />bikeName: BIKETOWN"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"BIKETOWN","legendgroup":"BIKETOWN","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4,1,3,2],"y":[7.5718275862069,7.07889130434783,6.44656896551724,6.38581730769231],"text":["factor(Time_of_day, level = level_order): Night<br />avg_speed: 7.571828<br />bikeName: BIKETOWN LIGHTBIKE<br />bikeName: BIKETOWN LIGHTBIKE","factor(Time_of_day, level = level_order): Morning<br />avg_speed: 7.078891<br />bikeName: BIKETOWN LIGHTBIKE<br />bikeName: BIKETOWN LIGHTBIKE","factor(Time_of_day, level = level_order): Evening<br />avg_speed: 6.446569<br />bikeName: BIKETOWN LIGHTBIKE<br />bikeName: BIKETOWN LIGHTBIKE","factor(Time_of_day, level = level_order): Afternoon<br />avg_speed: 6.385817<br />bikeName: BIKETOWN LIGHTBIKE<br />bikeName: BIKETOWN LIGHTBIKE"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"BIKETOWN LIGHTBIKE","legendgroup":"BIKETOWN LIGHTBIKE","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":31.4155251141553},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,4.6],"tickmode":"array","ticktext":["Morning","Afternoon","Evening","Night"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["Morning","Afternoon","Evening","Night"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"factor(Time_of_day, level = level_order)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[3.89613333333333,8.0952],"tickmode":"array","ticktext":["4","5","6","7","8"],"tickvals":[4,5,6,7,8],"categoryorder":"array","categoryarray":["4","5","6","7","8"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"avg_speed","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"bikeName","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"34e62b783560":{"x":{},"y":{},"colour":{},"type":"scatter"},"34e660f847eb":{"x":{},"y":{},"colour":{}}},"cur_data":"34e62b783560","visdat":{"34e62b783560":["function (y) ","x"],"34e660f847eb":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-b3d565b28cb8820e0d81" style="width:100%;height:464px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b3d565b28cb8820e0d81">{"x":{"options":{"minZoom":1,"maxZoom":52,"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"preferCanvas":false,"bounceAtZoomLimits":false,"maxBounds":[[[-90,-370]],[[90,370]]]},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron","CartoDB.Positron","CartoDB.Positron",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["CartoDB.DarkMatter","CartoDB.DarkMatter","CartoDB.DarkMatter",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenStreetMap","OpenStreetMap","OpenStreetMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["Esri.WorldImagery","Esri.WorldImagery","Esri.WorldImagery",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenTopoMap","OpenTopoMap","OpenTopoMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"createMapPane","args":["point",440]},{"method":"addCircleMarkers","args":[[45.52,45.52,45.53,45.53,45.52,45.51,45.53,45.5,45.51,45.51],[-122.68,-122.67,-122.69,-122.68,-122.69,-122.68,-122.7,-122.67,-122.67,-122.65],6,null,"data",{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"pane":"point","stroke":true,"color":"#333333","weight":1,"opacity":0.9,"fill":true,"fillColor":"#6666FF","fillOpacity":0.6},null,null,["<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>1&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.52&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.68&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>65966&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>2&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.52&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.67&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>48719&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>3&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.53&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.69&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>35843&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>4&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.53&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.68&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>33384&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>5&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.52&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.69&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>18798&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>6&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.51&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.68&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>16417&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>7&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.53&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.7&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>14840&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>8&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.5&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.67&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>14815&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>9&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.51&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.67&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>13689&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>10&emsp;<\/td><\/tr><tr><td>1<\/td><th>lat&emsp;<\/th><td>45.51&emsp;<\/td><\/tr><tr><td>2<\/td><th>long&emsp;<\/th><td>-122.65&emsp;<\/td><\/tr><tr><td>3<\/td><th>n&emsp;<\/th><td>12182&emsp;<\/td><\/tr><\/table><\/div>"],{"maxWidth":800,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":true,"closeOnClick":true,"className":""},["long (x) : -122.68<br>lat (y) : 45.52","long (x) : -122.67<br>lat (y) : 45.52","long (x) : -122.69<br>lat (y) : 45.53","long (x) : -122.68<br>lat (y) : 45.53","long (x) : -122.69<br>lat (y) : 45.52","long (x) : -122.68<br>lat (y) : 45.51","long (x) : -122.7<br>lat (y) : 45.53","long (x) : -122.67<br>lat (y) : 45.5","long (x) : -122.67<br>lat (y) : 45.51","long (x) : -122.65<br>lat (y) : 45.51"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]},{"method":"addHomeButton","args":[-122.7,45.5,-122.65,45.53,true,"data","Zoom to data","<strong> data <\/strong>","bottomright"]},{"method":"addLayersControl","args":[["CartoDB.Positron","CartoDB.DarkMatter","OpenStreetMap","Esri.WorldImagery","OpenTopoMap"],"data",{"collapsed":true,"autoZIndex":true,"position":"topleft"}]},{"method":"addLegend","args":[{"colors":["#6666FF"],"labels":["data"],"na_color":null,"na_label":"NA","opacity":1,"position":"topright","type":"factor","title":"","extra":null,"layerId":null,"className":"info legend","group":"data"}]}],"limits":{"lat":[45.5,45.53],"lng":[-122.7,-122.65]},"fitBounds":[45.5,-122.7,45.53,-122.65,[]]},"evals":[],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (\n      function(el, x, data) {\n      // get the leaflet map\n      var map = this; //HTMLWidgets.find('#' + el.id);\n      // we need a new div element because we have to handle\n      // the mouseover output separately\n      // debugger;\n      function addElement () {\n      // generate new div Element\n      var newDiv = $(document.createElement('div'));\n      // append at end of leaflet htmlwidget container\n      $(el).append(newDiv);\n      //provide ID and style\n      newDiv.addClass('lnlt');\n      newDiv.css({\n      'position': 'relative',\n      'bottomleft':  '0px',\n      'background-color': 'rgba(255, 255, 255, 0.7)',\n      'box-shadow': '0 0 2px #bbb',\n      'background-clip': 'padding-box',\n      'margin': '0',\n      'padding-left': '5px',\n      'color': '#333',\n      'font': '9px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif',\n      'z-index': '700',\n      });\n      return newDiv;\n      }\n\n\n      // check for already existing lnlt class to not duplicate\n      var lnlt = $(el).find('.lnlt');\n\n      if(!lnlt.length) {\n      lnlt = addElement();\n\n      // grab the special div we generated in the beginning\n      // and put the mousmove output there\n\n      map.on('mousemove', function (e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                           ' lon: ' + (e.latlng.lng).toFixed(5) +\n                           ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                           ' | zoom: ' + map.getZoom() +\n                           ' | x: ' + L.CRS.EPSG3857.project(e.latlng).x.toFixed(0) +\n                           ' | y: ' + L.CRS.EPSG3857.project(e.latlng).y.toFixed(0) +\n                           ' | epsg: 3857 ' +\n                           ' | proj4: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs ');\n      } else {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      }\n      });\n\n      // remove the lnlt div when mouse leaves map\n      map.on('mouseout', function (e) {\n      var strip = document.querySelector('.lnlt');\n      if( strip !==null) strip.remove();\n      });\n\n      };\n\n      //$(el).keypress(67, function(e) {\n      map.on('preclick', function(e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      var txt = document.querySelector('.lnlt').textContent;\n      console.log(txt);\n      //txt.innerText.focus();\n      //txt.select();\n      setClipboardText('\"' + txt + '\"');\n      }\n      });\n\n      }\n      ).call(this.getMap(), el, x, data);\n}","data":null},{"code":"function(el, x, data) {\n  return (function(el,x,data){\n           var map = this;\n\n           map.on('keypress', function(e) {\n               console.log(e.originalEvent.code);\n               var key = e.originalEvent.code;\n               if (key === 'KeyE') {\n                   var bb = this.getBounds();\n                   var txt = JSON.stringify(bb);\n                   console.log(txt);\n\n                   setClipboardText('\\'' + txt + '\\'');\n               }\n           })\n        }).call(this.getMap(), el, x, data);\n}","data":null}]}}</script>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
