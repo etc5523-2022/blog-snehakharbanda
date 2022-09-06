@@ -61,8 +61,6 @@ bike$Time_of_day <- cut(x=hour(bike$StartTime), breaks = breaks, labels = labels
 ```
 
 ```{r}
-#| label: tbl-variables
-#| tbl-cap: Important Variables
 
 variables <- tibble(Variables = c("PaymentPlan", "StartHub", "StartLatitude", "StartLongitude", "StartDate", "StartTime", "EndHub", "EndLatitude", "EndLongitude", "EndDate", "EndTime", "BikeName", "Distance_Miles", "Duration", "Speed", "Time of Day"),
                     VariableType = c("Character", "Character", "Numeric", "Numeric", "Date", "Date", "Character", "Numeric", "Numeric", "Date", "Date", "Character","Numeric", "Numeric", "Numeric", "Character"),
@@ -71,7 +69,7 @@ variables <- tibble(Variables = c("PaymentPlan", "StartHub", "StartLatitude", "S
 DT::datatable(variables)
 ```
 
-In @tbl-variables, all the important variables of the data is mentioned along with the variable *type* and *description*.
+In the above table, all the important variables of the data is mentioned along with the variable *type* and *description*.
 
 ## Analysis
 
@@ -103,7 +101,7 @@ Bikes that have traveled over the speed of 30 miles per hour are `r unique(bike_
 
 ### Top 5 bikes according to their average speed
 
-Using all the data we have, the bike with the highest average speed is *BETRUE MAX LIGHTBIKE*.
+Using all the data we have, from @tbl-highspeed, the bike with the highest average speed is *BETRUE MAX LIGHTBIKE*.
 
 ```{r}
 #| label: tbl-highspeed
