@@ -28,7 +28,11 @@ library(mapview)
 
 ## Data Description
 
-```{r load-data}
+The data used for this analysis is available to the public [here.](https://biketownpdx.com/system-data) 
+
+It contains information about bike rentals.
+
+```{r load-manipulate-data}
 bike_unzip <- unzip('week10_biketown.zip')
 bike <- read_csv(bike_unzip)
 
@@ -72,11 +76,16 @@ In @tbl-variables, all the important variables of the data is mentioned along wi
 
 ### Comparison of Speed.
 
+The average speed of an average rider is 15 miles per hour. Nevertheless, speed varies on various factors such as inclination of the road, weather conditions, the type of bike, etc.
+
+![Speed](speed.png)
+
 ```{r }
 #| label: fig-speed
-#| fig-cap: "Speed in miles per hour"
+#| fig-cap: "Speed of bikes in miles per hour"
 
 bike %>% filter(speed <= 30) %>%
+  filter(bikeName != "") %>%
   ggplot(aes(reorder(bikeName, -speed), speed, colour = bikeName)) +
   geom_boxplot(show.legend = FALSE) +
   ylab("Speed in miles/hour") +
@@ -85,36 +94,68 @@ bike %>% filter(speed <= 30) %>%
   theme(axis.text.x = element_text(color = "blue", size = 5, angle = 30)) 
 
 bike_high <- bike %>% filter(speed >= 30) %>% select(speed, bikeName)
-unique(bike_high$bikeName)
   
 ```
-In the graph @fig-speed we can see average speed of different bikes.
-### Time of Day
+In the above @fig-speed we can see average speed of different bikes. The above figure is obtained by only using speed below 30 miles per hour to see  speeds in the normal limits. We can observe that *Betrue Max Lightbike* has the highest median speed. 
+
+Bikes that have traveled over the speed of 30 miles per hour are `r unique(bike_high$bikeName)`
+
+### Top 5 bikes according to their average speed
+
+Using all the data we have, the bike with the highest average speed is *BETRUE MAX LIGHTBIKE*.
 
 ```{r}
-ggplot(bike) +
-  geom_bar(aes(fct_infreq(Time_of_day),
-               fill = Time_of_day), show.legend = FALSE) +
-  xlab("Time_of_day")
-```
+#| label: tbl-highspeed
+#| tbl-cap: Bikes that have travelled at very high speed
 
-Speed and time of day.
-```{r}
 bike_speed_top <- bike %>% group_by(bikeName) %>%
   summarise(avg_speed = mean(speed, na.rm = TRUE)) %>%
   filter(bikeName != "") %>%
   arrange(-avg_speed) %>%
   slice_head(n=5)
 
-kable(bike_speed_top)
+kable(bike_speed_top) %>% kable_styling(position = "center")
 ```
+### Time of Day
+
+Different people prefer different times of the day to ride bikes but if one is aware of the most common and least common times they can choose the time they wish to ride. If a person is hoping to find rider buddies along their ride they can choose the most common times and if a person is hoping to easily find a bike they can choose the least common time.
 
 ```{r}
-bike_payment <- bike %>% group_by(PaymentPlan) %>% summarise(meanDuration = mean(Duration, na.rm = TRUE)) %>%
-  mutate(meanDuration = meanDuration*60)
+#| label: fig-time
+#| fig-cap: "Frequency of riders based on time of day"
 
-ggplot(bike_payment) + geom_col(aes(meanDuration, PaymentPlan, fill = PaymentPlan)) + theme_bw()
+ggplot(bike) +
+  geom_bar(aes(fct_infreq(Time_of_day),
+               fill = Time_of_day), show.legend = FALSE) +
+  xlab("Time_of_day")
 ```
+According to the data we have, shown in @fig-time surprisingly, *afternoon* is the most common time that riders choose even though it is commonly hot and sunny! 
+
+## Payment Plan 
+
+One would normally expect that riders who are subscribers will have a higher mean duration of riding bikes but the data we have suggests otherwise. As seen in @fig-pay *Casual* riders have a higher mean duration.
+
+```{r}
+#| label: fig-pay
+#| fig-cap: "Mean Duration of riders according to payment plan"
+
+bike_payment <- bike %>% group_by(PaymentPlan) %>% summarise(meanDuration = mean(Duration, na.rm = TRUE)) %>%
+  mutate(meanDuration = meanDuration*60) %>%
+  mutate(meanDuration = round(meanDuration, digits = 2))
+
+ggplot(bike_payment, aes(meanDuration,
+                         reorder(PaymentPlan, meanDuration),
+                         fill = PaymentPlan)) +
+  geom_col() +
+  theme_bw() +
+  ylab("Payment Plan") +
+  xlab("Mean Duration in minutes") +
+  geom_text(aes(label = meanDuration),
+            hjust = 0, nudge_x = -10, color = "blue")
+```
+## Location Analysis
+
+In this section, let us see the most common location that riders choose to ride from. 
 
 ```{r}
 bike$latlong <- paste(bike$StartLatitude, ",", bike$StartLongitude)
@@ -131,4 +172,16 @@ p3 <- mapview(bike_loc, xcol = "long", ycol = "lat", crs = 4269, grid = FALSE)
 
 p3
 ```
+## Conclusion
+
+From the above analysis, we get a lot of information about some common habits and characteristics of riders. We know which bikes have normally been driven at higher speed, most riders prefer to ride in afternoon and that casual riders have higher mean duration. The most common locations that riders start from is also shown. 
+
+## References
+
+*Software:* RStudio Team (2020). RStudio: Integrated Development for R. RStudio, PBC, Boston, MA URL http://www.rstudio.com/.
+
+*Data:* Lyft. Biketown(2022). https://biketownpdx.com/system-data
+
+Tyler Whitehouse. Road Bike Basics. (2022). https://roadbikebasics.com/average-speed-on-road-bike/
+
 

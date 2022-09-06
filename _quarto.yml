@@ -11,7 +11,7 @@ website:
         href: https://github.com/etc5523-2022/blog-snehakharbanda
 format:
   html:
-    theme: quartz
+    theme: journal
 
 
 
