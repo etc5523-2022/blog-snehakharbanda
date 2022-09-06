@@ -24,6 +24,7 @@ library(kableExtra)
 library(plotly)
 library(sf)
 library(mapview)
+library(gt)
 ```
 
 ## Data Description
@@ -67,7 +68,7 @@ variables <- tibble(Variables = c("PaymentPlan", "StartHub", "StartLatitude", "S
                     VariableType = c("Character", "Character", "Numeric", "Numeric", "Date", "Date", "Character", "Numeric", "Numeric", "Date", "Date", "Character","Numeric", "Numeric", "Numeric", "Character"),
                     Description = c("Subsriber or Casual", "Start Location Name", "Start location latitude", "Start location longitude", "Start Date", "Start Time", "End location Name", "End location latitude", "End location longitude", "End Date", "End Time", "Name of the bike", "Distance Travelled", "Duration ridden", "Average speed", "Time of the day"))
 
-kable(variables) %>% kable_styling()
+DT::datatable(variables)
 ```
 
 In @tbl-variables, all the important variables of the data is mentioned along with the variable *type* and *description*.
@@ -118,7 +119,7 @@ kable(bike_speed_top) %>% kable_styling(position = "center")
 ```
 ### Time of Day
 
-Different people prefer different times of the day to ride bikes but if one is aware of the most common and least common times they can choose the time they wish to ride. If a person is hoping to find rider buddies along their ride they can choose the most common times and if a person is hoping to easily find a bike they can choose the least common time.
+Different people prefer different times of the day to ride bikes but if one is aware of the most common and least common times they can choose the time they wish to ride. If a person is hoping to find rider buddies along their ride they can choose the most common times and if a person is hoping to easily find a bike they can choose the least common time. The optimum temperature is warm, not hot or cold.
 
 ```{r}
 #| label: fig-time
@@ -183,5 +184,4 @@ From the above analysis, we get a lot of information about some common habits an
 *Data:* Lyft. Biketown(2022). https://biketownpdx.com/system-data
 
 Tyler Whitehouse. Road Bike Basics. (2022). https://roadbikebasics.com/average-speed-on-road-bike/
-
 
